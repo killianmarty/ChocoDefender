@@ -9,10 +9,17 @@ ChocoDefender is an ressource-efficient protection against Chocoblasting. It int
 ```bash
 git clone https://github.com/killianmarty/ChocoDefender
 cd ChocoDefender
+```
+
+Edit `src/main.c`'s `DEVICE`, `KEYBOARD_LAYOUT` and `KEYBOARD_MODEL` parameters to match your configuration.
+
+```bash
 make
 ```
 
 ## Usage
+
+### Normal usage
 
 Simply run the compiled binary with sudo rights.
 
@@ -25,6 +32,10 @@ You can also specify the keyword you want to detect (by default it is "choco"):
 ```bash
 sudo ./ChocoDefender <your_keyword>
 ```
+
+### Use as a systemctl service
+
+ChocoDefender can also be used as a systemctl service. To do so, just run `install_service.sh` as root.
 
 ## Disclaimer
 

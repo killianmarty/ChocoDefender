@@ -20,7 +20,7 @@ static size_t keyword_len = 0;
 static const char *keyword = NULL;
 
 static inline void lock_screen() {
-    system("loginctl lock-session");
+    system("loginctl list-sessions --no-legend | awk '{print $1}' | xargs -r -n1 loginctl lock-session");
 }
 
 static void check_pattern() {
