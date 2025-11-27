@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include "list.h"
 
 Node *head = NULL;
@@ -20,6 +21,7 @@ static void prune_head() {
         head->prev = NULL;
     }
 
+    memset(to_delete, 0, sizeof(Node));
     free(to_delete);
     list_size--;
 }
@@ -28,6 +30,7 @@ void clear_list() {
     Node *current = head;
     while (current != NULL) {
         Node *next = current->next;
+        memset(current, 0, sizeof(Node));
         free(current);
         current = next;
     }
@@ -84,6 +87,7 @@ void delete_char() {
         to_delete->next->prev = to_delete->prev;
     }
 
+    memset(to_delete, 0, sizeof(Node));
     free(to_delete);
     list_size--;
 }
@@ -103,6 +107,7 @@ void delete_char_forward() {
         if (to_delete->next != NULL) to_delete->next->prev = cursor;
     }
 
+    memset(to_delete, 0, sizeof(Node));
     free(to_delete);
     list_size--;
 }
